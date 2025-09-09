@@ -1,0 +1,35 @@
+body.light {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+body.dark {
+  background-color: #0d1b2a ;
+  color: #f8f9fa;
+}
+
+
+body.dark .btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+body.dark .btn-outline-primary {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+body.dark .btn-outline-primary:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+
+body.dark .card {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+
+
+body.dark .task-item:hover {
+  background-color: #495057;
+}
