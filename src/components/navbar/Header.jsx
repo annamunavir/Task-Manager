@@ -73,7 +73,6 @@ const Header = () => {
   const profileSize = windowWidth < 576 ? 32 : 42;
   const fontSize = windowWidth < 576 ? "1rem" : "1.2rem";
 
-  // Hover effect styles for Home/Tasks
   const [hovered, setHovered] = useState({ home: false, tasks: false });
 
   return (
@@ -85,7 +84,6 @@ const Header = () => {
       }}
     >
       <Container fluid className="d-flex align-items-center px-3 flex-nowrap">
-        {/* Brand */}
         <Navbar.Brand
           as={Link}
           to="/"
@@ -100,31 +98,42 @@ const Header = () => {
           ✨ Task Manager
         </Navbar.Brand>
 
-        {/* Center Menu */}
         <div className="d-none d-md-flex mx-auto gap-4 justify-content-center align-items-center">
-          {["home", "tasks"].map((item) => (
-            <span
-              key={item}
-              onClick={() => handleMenuClick(item)}
-              onMouseEnter={() => setHovered((prev) => ({ ...prev, [item]: true }))}
-              onMouseLeave={() => setHovered((prev) => ({ ...prev, [item]: false }))}
-              style={{
-                cursor: "pointer",
-                fontWeight: 500,
-                color: hovered[item] ? "#667eea" : "#fff",
-                transform: hovered[item] ? "scale(1.05)" : "scale(1)",
-                transition: "all 0.2s ease",
-                fontSize: "1.1rem",
-              }}
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </span>
-          ))}
+          <span
+            onClick={() => handleMenuClick("home")}
+            onMouseEnter={() => setHovered((prev) => ({ ...prev, home: true }))}
+            onMouseLeave={() => setHovered((prev) => ({ ...prev, home: false }))}
+            style={{
+              cursor: "pointer",
+              fontWeight: 500,
+              color: hovered.home ? "#667eea" : "#fff",
+              transform: hovered.home ? "scale(1.05)" : "scale(1)",
+              transition: "all 0.2s ease",
+              fontSize: "1.1rem",
+            }}
+          >
+            Home
+          </span>
+
+          <span
+            onClick={() => handleMenuClick("tasks")}
+            onMouseEnter={() => setHovered((prev) => ({ ...prev, tasks: true }))}
+            onMouseLeave={() => setHovered((prev) => ({ ...prev, tasks: false }))}
+            style={{
+              cursor: "pointer",
+              fontWeight: 500,
+              color: hovered.tasks ? "#667eea" : "#fff",
+              transform: hovered.tasks ? "scale(1.05)" : "scale(1)",
+              transition: "all 0.2s ease",
+              fontSize: "1.1rem",
+            }}
+          >
+            Tasks
+          </span>
         </div>
 
-        {/* Right side */}
+
         <div className="ms-auto d-flex align-items-center gap-2 gap-md-3 flex-nowrap">
-          {/* Theme Toggle */}
           <div
             className="d-flex align-items-center justify-content-center rounded"
             onClick={toggleTheme}
@@ -138,7 +147,6 @@ const Header = () => {
             {isLight ? <FaMoon size={22} /> : <FaSun size={22} />}
           </div>
 
-          {/* Profile Dropdown */}
           <Dropdown show={open} align="end" onToggle={() => setOpen(!open)}>
             <Dropdown.Toggle
               as="button"
@@ -151,8 +159,8 @@ const Header = () => {
                 background: user
                   ? "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
                   : isLight
-                  ? "#f7fafc"
-                  : "#2d3748",
+                    ? "#f7fafc"
+                    : "#2d3748",
                 color: user ? "#fff" : isLight ? "#4a5568" : "#e2e8f0",
                 fontWeight: "600",
                 fontSize: fontSize,
@@ -162,7 +170,9 @@ const Header = () => {
               {user ? (
                 <span style={{ lineHeight: 1 }}>{profileLetter}</span>
               ) : (
-                <MdAccountCircle size={profileSize - 8} />
+                <MdAccountCircle
+                  size={profileSize + 6}   // 👈 make it slightly larger than the circle size
+                />
               )}
             </Dropdown.Toggle>
 

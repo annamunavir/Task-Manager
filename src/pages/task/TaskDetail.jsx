@@ -41,7 +41,7 @@ const TaskDetail = () => {
     return (
       <Container className="text-center mt-5">
         <Spinner animation="border" variant={theme === "light" ? "primary" : "light"} />
-        <p className="mt-3">Loading or Task not found...</p>
+        <p className="mt-3 fs-responsive">Loading or Task not found...</p>
       </Container>
     );
   }
@@ -61,10 +61,10 @@ const TaskDetail = () => {
       {/* Header */}
       <div className="row align-items-center mb-4">
         <div className="col">
-          <h3 className="fw-bold">Task Detail</h3>
+          <h3 className="fw-bold .fs-small-heading">Task Detail</h3>
         </div>
         <div className="col text-end">
-          <Button variant={buttonVariant} onClick={() => navigate("/tasks")}>
+          <Button variant={buttonVariant} onClick={() => navigate("/tasks")} className="fs-responsive">
             <IoArrowBack size={20} className="me-1" /> Back
           </Button>
         </div>
@@ -74,14 +74,14 @@ const TaskDetail = () => {
       <div className="card mb-3 border-0 rounded-4" style={cardStyle}>
         <div className="row">
           <div className="col-12 col-md-6">
-            <p className="mb-2 fw-bold">
-              ID: <span className="fw-normal">{currentTask.id}</span>
+            <p className="mb-2 fw-bold fs-responsive">
+              ID: <span className="fw-normal fs-responsive">{currentTask.id}</span>
             </p>
           </div>
           <div className="col-12 col-md-6">
-            <p className="mb-2 fw-bold">
+            <p className="mb-2 fw-bold fs-responsive">
               Status:{" "}
-              <Badge bg={statusVariant} className="fw-bold">
+              <Badge bg={statusVariant} className="fw-bold fs-responsive">
                 {currentTask.completed ? "✅ Completed" : "⏳ Pending"}
               </Badge>
             </p>
@@ -91,7 +91,7 @@ const TaskDetail = () => {
 
       {/* Title */}
       <div className="card mb-4 border-0 rounded-4" style={cardStyle}>
-        <h5 className="mb-0 fw-bold">{currentTask.title}</h5>
+        <h5 className="mb-0 fw-bold fs-responsive">{currentTask.title}</h5>
       </div>
 
       {/* Edit Task / Outlet */}

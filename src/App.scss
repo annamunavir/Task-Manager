@@ -1,0 +1,33 @@
+// Variables
+$primary-color: #1271ba;
+
+// Mixin for responsive font sizes
+@mixin responsive-font($sm, $md, $lg) {
+  font-size: $sm;
+
+  @media (min-width: 768px) {
+    font-size: $md;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: $lg;
+  }
+}
+
+// Example class using mixin
+.fs-responsive {
+  @include responsive-font(1rem, 1.1rem, 1.25rem);
+  font-weight: 500;
+}
+
+.fs-heading {
+  @include responsive-font(1.8rem, 2.5rem, 3rem);
+  font-weight: 700;
+  
+}
+
+.fs-small-heading{
+    @include responsive-font(1.8rem, 2.5rem, 2rem);
+  font-weight: 700;
+  
+}
