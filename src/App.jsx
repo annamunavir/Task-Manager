@@ -1,5 +1,5 @@
 import React from 'react'
-import './app.scss'
+import './App.scss'
 import { Route, Routes } from 'react-router-dom'
 import AddTask from './pages/task/AddTask'
 import EditTask from './pages/task/EditTask'
